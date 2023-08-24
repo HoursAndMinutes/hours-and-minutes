@@ -20,7 +20,11 @@ router.get('/:id', async (req, res) => {
                 id: Number(req.params.id)
             }
         });
-        res.send(results)
+        if (results) {
+            res.send(results)
+        } else {
+            res.send({error: "Could not find user"})
+        }
     } catch (err) {
         res.send(err);
     }

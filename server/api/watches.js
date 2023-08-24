@@ -20,7 +20,12 @@ router.get('/:id', async (req, res) => {
                 id: Number(req.params.id)
             }
         });
-        res.send(results)
+        if (results) {
+            res.send(results)
+        } else {
+            res.send({error: "Could not find watch"})
+        }
+        
     } catch (err) {
         res.send(err);
     }
