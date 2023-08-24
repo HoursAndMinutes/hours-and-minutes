@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const PORT = 3009;
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 
 app.use(require("body-parser").json());
 app.use(require("morgan")("dev"));
@@ -12,6 +14,10 @@ app.get(`/`, (req, res) => {
 });
 
 app.use(`/api`, require(`./api`));
+
+app.use('/auth', require('./auth'));
+
+const token = 
 
 app.listen(PORT, (err) => {
   if (!err) {

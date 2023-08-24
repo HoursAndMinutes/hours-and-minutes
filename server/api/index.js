@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
 
 router.use(`/users`, require(`./users.js`));
 
-
 router.use(`/watches`, require(`./watches.js`));
 
 
