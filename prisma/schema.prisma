@@ -9,3 +9,77 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User { 
+  id Int @id @default(autoincrement()) @unique
+  firstname String @db.VarChar(100)
+  lastname String @db.VarChar(100)
+  email String @db.VarChar(100) @unique
+  password String @db.VarChar(100)
+  ship_id Shipping_Info[]
+  cc_id Billing_Info[]
+  purchase_history Purchase_History[]
+  cart Cart[]
+}
+
+model Watches {
+  id Int @id @default(autoincrement()) @unique
+  name String @db.VarChar(200)
+  brand String @db.VarChar(100)
+  price Int 
+  quantity Int
+  description String @db.VarChar(500)
+  color String @db.VarChar(100)
+  material String @db.VarChar(100)
+  mech Boolean?
+  digital Boolean?
+  gender String @db.VarChar(100)
+  purchase_history Purchase_History[]
+  cart Cart[]
+}
+
+model Billing_Info {
+  id Int @id @default(autoincrement()) @unique
+  name_on_card String @db.VarChar(200)
+  cc String @db.VarChar(16)
+  cvv String @db.VarChar(4)
+  exp String @db.VarChar(7)
+  street_address String @db.VarChar(200)
+  city String @db.VarChar(200)
+  state String @db.VarChar(200)
+  zip String @db.VarChar(200)
+  country String @db.VarChar(200)
+  user User @relation(fields:[userId], references: [id])
+  userId Int
+}
+
+model Shipping_Info {
+  id Int @id @default(autoincrement()) @unique
+  firstname String @db.VarChar(100)
+  lastname String @db.VarChar(100)
+  street_address String @db.VarChar(200)
+  city String @db.VarChar(200)
+  state String @db.VarChar(200)
+  zip String @db.VarChar(200)
+  country String @db.VarChar(200)
+  user User @relation(fields:[userId], references: [id])
+  userId Int
+}
+
+model Purchase_History {
+  id Int @id @default(autoincrement()) @unique
+  user User @relation(fields:[userId], references: [id])
+  userId Int
+  watch Watches @relation(fields:[watch_id], references: [id])
+  watch_id Int
+  purchase_date DateTime
+}
+
+model Cart {
+  id Int @id @default(autoincrement()) @unique
+  user_id User @relation(fields:[userId], references: [id])
+  userId Int
+  watch Watches @relation(fields:[watch_id], references: [id])
+  watch_id Int
+  purchase_date DateTime
+}
