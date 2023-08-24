@@ -1,12 +1,17 @@
 const express = require("express");
-
+const path = require("path");
 const app = express();
 const PORT = 3009;
 
+app.use(require("body-parser").json());
+app.use(require("morgan")("dev"));
+
 app.get(`/`, (req, res) => {
   console.log(req);
-  res.send(`<h1> Hours and Minutes </h1> `);
+  res.send(`<h1> Hours and Minutes </h1>`);
 });
+
+app.use(`/api`, require(`./api`));
 
 app.listen(PORT, (err) => {
   if (!err) {
@@ -15,3 +20,4 @@ app.listen(PORT, (err) => {
     console.log(`Something went wrong`);
   }
 });
+
