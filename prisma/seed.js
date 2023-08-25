@@ -120,6 +120,42 @@ const main = async() => {
         }
     });
 
+    await prisma.cart.create({
+        data: {
+            user_id: user1.id,
+            watch_id: watch1.id
+        }
+    })
+
+    await prisma.cart.create({
+        data: {
+            user_id: user1.id,
+            watch_id: watch2.id
+        }
+    })
+
+    await prisma.cart.create({
+        data: {
+            user_id: user1.id,
+            watch_id: watch3.id
+        }
+    })
+
+    await prisma.cart.create({
+        data: {
+            user_id: user2.id,
+            watch_id: watch4.id
+        }
+    })
+
+    await prisma.cart.create({
+        data: {
+            user_id: user4.id,
+            watch_id: watch2.id
+        }
+    })
+
+
 }
 
 main()

@@ -50,8 +50,8 @@ model Billing_Info {
   state          String @db.VarChar(200)
   zip            String @db.VarChar(200)
   country        String @db.VarChar(200)
-  user           User   @relation(fields: [userId], references: [id])
-  userId         Int
+  user           User   @relation(fields: [user_id], references: [id])
+  user_id         Int
 }
 
 model Shipping_Info {
@@ -63,14 +63,14 @@ model Shipping_Info {
   state          String @db.VarChar(200)
   zip            String @db.VarChar(200)
   country        String @db.VarChar(200)
-  user           User   @relation(fields: [userId], references: [id])
-  userId         Int
+  user           User   @relation(fields: [user_id], references: [id])
+  user_id         Int
 }
 
 model Purchase_History {
   id            Int      @id @unique @default(autoincrement())
-  user          User     @relation(fields: [userId], references: [id])
-  userId        Int
+  user          User     @relation(fields: [user_id], references: [id])
+  user_id        Int
   watch         Watches  @relation(fields: [watch_id], references: [id])
   watch_id      Int
   purchase_date DateTime
@@ -78,9 +78,8 @@ model Purchase_History {
 
 model Cart {
   id            Int      @id @unique @default(autoincrement())
-  user_id       User     @relation(fields: [userId], references: [id])
-  userId        Int
+  user          User     @relation(fields: [user_id], references: [id])
+  user_id       Int
   watch         Watches  @relation(fields: [watch_id], references: [id])
   watch_id      Int
-  purchase_date DateTime
 }

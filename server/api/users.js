@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { requireUser } = require('./utils.js');
 
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -27,6 +28,42 @@ router.get('/:id', async (req, res) => {
         }
     } catch (err) {
         res.send(err);
+    }
+});
+
+router.get('/:id/cart', async (req, res) => {
+    try {
+        const results = await prisma.cart.findMany({
+            where: {
+                user_id: Number(req.params.id)
+                //req.params.id -> separate by / index 3
+            }
+        });
+        if (results) {
+            res.send(results)
+        } else {
+            res.send({ message: "Cart not found" })
+        }
+    } catch (error) {
+        res.send({ error: "Bad pathing you silly geese" })
+    }
+})
+
+router.put('/:id', requireUser, async (req, res) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                id: Number(req.params.id)
+            },
+            body: req.body
+        })
+        if (user) {
+            res.send(user);
+        } else {
+            res.send({ error: "Error finding user" });
+        }
+    } catch (error) {
+        res.send(error);
     }
 })
 
