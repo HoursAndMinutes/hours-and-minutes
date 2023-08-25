@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
-  res.send("Hello World");
+  res.send("Authorization path");
 })
 
 router.post('/login', async (req, res) => {
@@ -45,6 +45,24 @@ router.post('/register', async (req, res) => {
     }
   } catch (err) {
     res.send(err);
+  }
+});
+
+router.get('/me', async (req, res) => {
+  const auth = req.headers.authorization;
+
+  try {
+    const user = await prisma.user.findUnique({
+    where: { id: req.userId},
+    });
+
+    if (user) {
+      res.send(user);
+    } else {
+      res.send(error.message);
+    }
+  } catch (error) {
+    res.send(error.message);
   }
 });
 
