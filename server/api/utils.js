@@ -1,5 +1,5 @@
 const requireUser = (req, res, next) => {
-  if (req.userId) {
+  if (req.user_id) {
     next();
   } else {
     res.status(401).send({ message: "User unauthorized" });
@@ -7,7 +7,8 @@ const requireUser = (req, res, next) => {
 };
 
 const requireAdmin = (req, res, next) => {
-  if (req.userId) {
+  console.log(req)
+  if (req.admin) {
     next();
   } else {
     res.status(401).send({ message: "User does not have permission to access this page" })

@@ -12,8 +12,9 @@ app.use((req, res, next) => {
   const auth = req.headers.authorization;
   const token = auth?.startsWith("Bearer ") ? auth.slice(7) : null;
   try {
-    const { id } = jwt.verify(token, process.env.JWT);
+    const { id, admin } = jwt.verify(token, process.env.JWT);
     req.userId = id;
+    req.admin = admin
   } catch {
     req.userId = null;
   }
