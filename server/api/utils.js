@@ -1,5 +1,5 @@
 const requireUser = (req, res, next) => {
-  if (req.user_id) {
+  if (req.userId) {
     next();
   } else {
     res.status(401).send({ message: "User unauthorized" });
