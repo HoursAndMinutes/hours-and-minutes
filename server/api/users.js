@@ -33,6 +33,25 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.put('/:id', requireUser, async (req, res) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                id: Number(req.params.id)
+            },
+            body: req.body
+        })
+        if (user) {
+            res.send(user);
+        } else {
+            res.send({ error: "Error finding user" });
+        }
+    } catch (error) {
+        res.send(error);
+    }
+})
+
+
 router.get('/:id/cart', async (req, res) => {
     try {
         const results = await prisma.cart.findMany({
@@ -51,21 +70,32 @@ router.get('/:id/cart', async (req, res) => {
     }
 })
 
-router.put('/:id', requireUser, async (req, res) => {
+router.post('/cart', async (req, res) => {
     try {
-        const user = await prisma.user.findUnique({
-            where: {
-                id: Number(req.params.id)
-            },
-            body: req.body
+        const results = await prisma.cart.create({
+            data: req.body
         })
-        if (user) {
-            res.send(user);
-        } else {
-            res.send({ error: "Error finding user" });
+        if (results) {
+            res.send(results)
         }
     } catch (error) {
-        res.send(error);
+        res.send({ error: "Error adding to cart" })
+    }
+})
+
+router.delete('/cart/:id', async (req, res) => {
+    try {
+        const results = await prisma.cart.delete({
+            where: {
+                id: Number(req.params.id)
+            }
+        })
+        console.log(results)
+        if (results) {
+            res.send(results);
+        }
+    } catch (error) {
+        res.send({ error: "Error deleting cart" })
     }
 })
 
