@@ -4,9 +4,11 @@ const { requireUser } = require('./utils.js');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
+
 router.use("/admin", require("./admin.js"));
 
 router.use("/carts", require("./carts.js"));
+
 
 router.get('/', async (req, res) => { 
     try {
@@ -37,7 +39,7 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', requireUser, async (req, res) => {
     try {
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.update({
             where: {
                 id: Number(req.params.id)
             },
