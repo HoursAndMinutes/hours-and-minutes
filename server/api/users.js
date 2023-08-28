@@ -4,6 +4,8 @@ const { requireUser } = require('./utils.js');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
+router.use("/admin", require("./admin.js"));
+
 router.get('/', async (req, res) => { 
     try {
         const results = await prisma.user.findMany();
