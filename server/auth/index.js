@@ -17,7 +17,7 @@ router.post('/login', async (req, res) => {
     if (user) {
       const passwordMatch = await bcrypt.compare(password, user.password)
       if (passwordMatch) {
-        const token = jwt.sign({ id: user.id }, process.env.JWT);
+        const token = jwt.sign({ id: user.id, admin: user.admin }, process.env.JWT);
         res.status(201).send({ token })
       } else {
         res.send({ error: "Wrong password. Please try again." })
@@ -38,7 +38,7 @@ router.post('/register', async (req, res) => {
       data: user
     });
     if (result) {
-      const token = jwt.sign({ id: result.id }, process.env.JWT);
+      const token = jwt.sign({ id: result.id, admin: result.admin }, process.env.JWT);
       res.status(201).send({ token });
     } else {
       res.send({ error: "Failed to create user" });

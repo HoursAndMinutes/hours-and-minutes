@@ -8,13 +8,13 @@ const dotenv = require('dotenv');
 app.use(require("body-parser").json());
 app.use(require("morgan")("dev"));
 
-app.use((req, res, next) => {
+app.use( async (req, res, next) => {
   const auth = req.headers.authorization;
   const token = auth?.startsWith("Bearer ") ? auth.slice(7) : null;
   try {
     const { id, admin } = jwt.verify(token, process.env.JWT);
     req.userId = id;
-    req.admin = admin
+    req.admin = admin;
   } catch {
     req.userId = null;
   }
@@ -23,7 +23,6 @@ app.use((req, res, next) => {
 });
 
 app.get(`/`, (req, res) => {
-  console.log(req);
   res.send(`<h1> Hours and Minutes </h1>`);
 });
 
