@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
+    //TO DO: loggedIn ? "Profile" : "Log In"
     return (
         <section>
             <nav>
@@ -9,6 +10,8 @@ const NavBar = () => {
                 <Link className = "navLink" to = '/shop?type=women'> Women's </Link>
                 <Link className = "navLink" to = '/shop?type=brand'> Shop by Brand </Link>
                 <Link className = "navLink" to = '/shop?type=featured'> Featured </Link>
+                <Link className = "navLink" to = '/profile'> Profile </Link>
+                <Link className = "navLink" to = '/cart'> Cart </Link>
             </nav>        
         </section>
     )
