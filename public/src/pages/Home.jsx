@@ -1,11 +1,9 @@
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer";
 import FeaturedWatch from "../components/FeaturedWatch";
+import ShopDetails from '../components/ShopDetails';
 
 const Home = () => {
     return (
         <section>
-            <header><NavBar />Home Page</header>
             <body>
                 <FeaturedWatch />
                 <section id="men">
@@ -23,9 +21,8 @@ const Home = () => {
                 <section id="brand3">
                     <h1>Brand 3 Watches</h1>
                 </section>
-                <p>All Watches Component Belongs Here</p>
+                <ShopDetails />
             </body>
-            <footer><Footer /></footer>
         </section>
     )
 };

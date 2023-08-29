@@ -1,13 +1,10 @@
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import ShopDetails from '../components/ShopDetails';
 
 const Shop = () => {
 
     return (
         <section>  
-            <header><NavBar /></header>
-            {/* <ShopDetails /> */}
-            <footer><Footer /></footer>
+            <ShopDetails />
         </section>
     )
 };
