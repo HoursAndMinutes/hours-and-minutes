@@ -1,8 +1,9 @@
 const CheckOutButton = () => {
+    //TO DO: Do we want to keep button as checkout? A tag? Link? Do we even need a component for this?
     return (
-        <>
-            <h1>CheckOutButton</h1>
-        </>
+        <section>
+            <button>Check Out</button>
+        </section>
     )
 }
 

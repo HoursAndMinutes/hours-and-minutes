@@ -1,8 +1,14 @@
 const LogInForm = () => {
+  //TO DO: Return token, link to backend, sign in user if info is correct
   return (
-      <>
-          <h1>LogInForm</h1>
-      </>
+      <section>
+        <h2>Log in here:</h2>
+        <form>
+          <label>Email: <input /></label>
+          <label>Password: <input type="password" /></label>
+          <button>Log in</button>
+        </form>
+      </section>
   )
 }
 
