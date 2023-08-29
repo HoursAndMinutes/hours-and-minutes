@@ -1,6 +1,14 @@
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import SingleItemDetail from "../components/SingleItemDetail";
+
 const SingleItem = () => {
     return (
-        <h1>single item page</h1>
+        <section>
+            <header><NavBar /></header>
+            <SingleItemDetail />
+            <footer><Footer /></footer>
+        </section>
     )
 };
 

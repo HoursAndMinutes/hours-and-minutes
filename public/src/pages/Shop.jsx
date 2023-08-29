@@ -1,6 +1,14 @@
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+
 const Shop = () => {
+
     return (
-        <h1>shop page</h1>
+        <section>  
+            <header><NavBar /></header>
+            {/* <ShopDetails /> */}
+            <footer><Footer /></footer>
+        </section>
     )
 };
 
