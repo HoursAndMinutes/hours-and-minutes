@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+const { requireAdmin } = require("./utils");
+
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -13,7 +15,7 @@ router.get('/', async (req, res) => {
 
 
 //Add a Watch
-router.post('/addwatch', async (req, res) => {
+router.post('/addwatch', requireAdmin, async (req, res) => {
     try {
         const watch = await prisma.watches.create({
                 data: req.body
@@ -29,7 +31,7 @@ router.post('/addwatch', async (req, res) => {
 })
 
 //Edit a Watch Details
-router.put('/updatewatch/:id', async (req, res) => {
+router.put('/updatewatch/:id', requireAdmin, async (req, res) => {
     try {
         const watch = await prisma.watches.update({
             where: {
@@ -48,7 +50,7 @@ router.put('/updatewatch/:id', async (req, res) => {
 })
 
 //Delete a Watch
-router.delete('/deletewatch/:id', async (req, res) => {
+router.delete('/deletewatch/:id', requireAdmin, async (req, res) => {
     try {
         const watch = await prisma.watches.delete({
             where: {
@@ -67,7 +69,7 @@ router.delete('/deletewatch/:id', async (req, res) => {
 
 
 //Update a User
-router.put('/updateuser/:id', async (req, res) => {
+router.put('/updateuser/:id', requireAdmin, async (req, res) => {
     try {
         const updatedUser = await prisma.user.update({
             data: req.body
