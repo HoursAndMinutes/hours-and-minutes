@@ -1,8 +1,14 @@
+import { Link } from "react-router-dom"
+
 const Footer = () => {
   return (
-      <>
-          <h1>Footer</h1>
-      </>
+      <section>
+        <nav>
+          <Link className = "navLink" to = '/about'> About Us </Link>
+          <Link className = "navLink" to = '/contact'> Contact Us </Link>
+          <Link className = "navLink" to = '/profile'> Profile </Link>
+        </nav>    
+      </section>
   )
 }
 
