@@ -1,8 +1,10 @@
 const PurchaseHistory = () => {
+  //TO DO: Connect to backend
+  //TO DO: Loop through
   return (
-      <>
-          <h1>PurchaseHistory</h1>
-      </>
+      <section>
+        <p>(loop thru) Item name, price, quantity purchased, link to buy more, link to item page</p>
+      </section>
   )
 }
 
