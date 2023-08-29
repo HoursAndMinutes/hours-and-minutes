@@ -1,10 +1,6 @@
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
-
 const AboutUs = () => {
     return (
-        <section>
-            <header><NavBar />About Us</header>      
+        <section> 
             <section id="aboutus">
                 <h2>Welcome To Hours And Minutes</h2>
                 <p>
@@ -26,7 +22,6 @@ const AboutUs = () => {
                     Have a nice day!
                 </p>
             </section>
-            <footer><Footer /></footer>
         </section>
     )
 }
