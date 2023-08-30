@@ -8,11 +8,13 @@ PULL GUIDE:
 
 3. Create hours_and_minutes database if it does not exist
 
-4. npm run migrate:prisma
+4. Rename terminal to "prisma", run "npm run migrate:prisma"
 
-5. npm run build:dev
+5. Open second terminal, rename "nodemon", run "npm run build:dev"
 
-6. cd client && npm run dev
+6. Open third terminal, rename "vite", run "cd client && npm run dev"
+
+7. Open fourth terminal, use this for all other necessities
 
 NOTE: localhost:5173 will update with every saved change. This is the vite server and is looking from the front end. Localhost:3009 is our express.js server and will only update when the dist file is updated. You can do this by running npm run build:dev
 
