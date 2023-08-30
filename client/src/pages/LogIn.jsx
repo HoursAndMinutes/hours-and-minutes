@@ -1,12 +1,20 @@
+import React, { useState } from 'react';
 import LogInForm from "../components/LogInForm";
+import RegisterForm from "../components/RegisterForm";
 
-const LogIn = () => {
+const App = () => {
+    const [showLoginForm, setShowLoginForm] = useState(true);
+
     return (
         <section>
-            <LogInForm />
-            <p>New User? Sign Up <a>Here!</a></p>
+            {showLoginForm ? <LogInForm /> : <RegisterForm />}
+            {showLoginForm ? (
+                <p>New User? Sign Up <a href="#" onClick={() => setShowLoginForm(false)}>Here!</a></p>
+            ) : (
+                <p>Already have an account? <a href="#" onClick={() => setShowLoginForm(true)}>Log In!</a></p>
+            )}
         </section>
-    )
+    );
 };
 
-export default LogIn
+export default App;
