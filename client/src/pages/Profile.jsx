@@ -1,11 +1,11 @@
 import PurchaseHistory from "../components/PurchaseHistory";
 
-const Profile = () => {
+const Profile = ({user}) => {
     //TO DO: Replace user with user's first name
     return (
         <section>
-            <h1>Welcome, User!</h1>
-            <PurchaseHistory />
+            <h1>Welcome, {user.firstName}!</h1>
+            <PurchaseHistory user={user}/>
         </section>
     )
 };

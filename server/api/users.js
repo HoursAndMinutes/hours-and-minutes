@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { requireUser } = require('./utils.js');
+const { requireUser, requireUserOrAdmin } = require('./utils.js');
 
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.put('/:id', requireUser, async (req, res) => {
+router.put('/:id', requireUserOrAdmin, async (req, res) => {
     try {
         const user = await prisma.user.update({
             where: {

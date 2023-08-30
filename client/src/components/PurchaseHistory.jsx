@@ -1,4 +1,9 @@
-const PurchaseHistory = () => {
+const PurchaseHistory = ({user}) => {
+
+  if(!user){
+    userId = 2;
+    
+  }
   //TO DO: Connect to backend
   //TO DO: Loop through
   return (
