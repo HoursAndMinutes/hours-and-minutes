@@ -23,14 +23,14 @@ app.use( async (req, res, next) => {
 });
 
 app.get(`/`, (req, res) => {
-  res.send(`<h1> Hours and Minutes </h1>`);
+  res.sendFile(path.join(__dirname, "..", "client/dist/index.html"));
 });
+
+app.use(express.static(path.join(__dirname, "..", "client/dist")));
 
 app.use(`/api`, require(`./api`));
 
 app.use('/auth', require('./auth'));
-
-const token = 
 
 app.listen(PORT, (err) => {
   if (!err) {

@@ -13,6 +13,9 @@ import SingleItem from './pages/SingleItem'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 
+// import { AboutUs, Admin, Cart, Checkout, Contact, Home, LogIn, Profile, Shop, SignUp, SingleItem } from './pages';
+// import { NavBar, Footer } from './components';
+
 
 const App = () => {
   return (

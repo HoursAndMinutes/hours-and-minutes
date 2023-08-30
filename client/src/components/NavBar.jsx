@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const NavBar = () => {
     //TO DO: loggedIn ? "Profile" : "Log In"
     return (
-        <section>
+        <header>
             <nav>
                 <Link className = "navLink" to = '/'> Hours and Minutes </Link>
                 <Link className = "navLink" to = '/shop?type=men'> Men's </Link>
@@ -13,7 +13,7 @@ const NavBar = () => {
                 <Link className = "navLink" to = '/profile'> Profile </Link>
                 <Link className = "navLink" to = '/cart'> Cart </Link>
             </nav>        
-        </section>
+        </header>
     )
 }
 
