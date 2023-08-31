@@ -28,10 +28,16 @@ const Home = () => {
             <FeaturedWatch />
             <section>
                 <section id="men">
-                    <p>Men Watches</p>
+                    <a href='/shop?type=men'>
+                        <img />
+                        <p>Men Watches</p>
+                    </a>
                 </section>
                 <section id="women">
-                    <p>Women Watches</p>
+                    <a href='/shop?type=women'>
+                        <img />
+                        <p>Women's Watches</p>
+                    </a>
                 </section>
             </section>
             <section>

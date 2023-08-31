@@ -13,15 +13,15 @@ const ShopDetails = ({ type }) => {
     const fetchAPI = async() => {
       const response = await fetch('/api/watches');
       const data = await response.json();
-      console.log("THE TYPE", type);
       const watchList = [];
       data.map((watch) => {
-        if (((watch.gender === 'Female') && type === 'women') || (watch.brand === type) || ((watch.gender === 'Male') && type === 'men')) {
+        if (((watch.gender === 'Female') && type === 'women') || ((watch.gender === 'Male') && type === 'men') || (watch.brand === type)) {
           watchList.push(watch);
+        } else if (!type) {
+          watchList.push(watch)
         }
       });
       setAllWatches(watchList);
-      console.log(watchList);
   }
     fetchAPI();
   }, []);
