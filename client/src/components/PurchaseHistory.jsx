@@ -1,16 +1,13 @@
-import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
 const PurchaseHistory = () => {
   //TO DO: Connect to backend
   //TO DO: Loop through
-  const [history, setHistory] = useState([])
-  const { id: userId } = useParams();
+  const [history, setHistory] = useState([]);
 
   const getPurchaseHistory = async (userId) => {
     const results = await fetch(`/api/users/${userId}/purchasehistory`);
     const data = await results.json();
-    console.log(data)
     return data
   }
 

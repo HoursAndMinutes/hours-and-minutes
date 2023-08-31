@@ -4,24 +4,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    // const navigate = useNavigate();
-    // const [allWatches, setAllWatches] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchAPI = async() => {
-    //         const response = await fetch('/api/watches');
-    //         const data = await response.json();
-    //         const watchList = data;
-    //         setAllWatches();
-    //     }
-    //     fetchAPI();
-    // }, []);
-
-    // const getWatches = async () => {
-    //     const results = await fetch('/api/watches');
-    //     const data = await results.json();
-    //     console.log(data)
-    // }
 
     return (
         <body>
