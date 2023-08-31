@@ -24,13 +24,19 @@ const Home = () => {
             </section>
             <section>
                 <section id="brand1">
-                    <p>Brand 1 Watches</p>
+                    <a>
+                        <p>Brand 1 Watches</p>
+                    </a>
                 </section>
                 <section id="brand2">
-                    <p>Brand 2 Watches</p>
+                    <a>
+                        <p>Brand 2 Watches</p>
+                    </a>
                 </section>
                 <section id="brand3">
-                    <p>Brand 3 Watches</p>
+                    <a>
+                        <p>Brand 3 Watches</p>
+                    </a>
                 </section>
             </section>
             <section>
