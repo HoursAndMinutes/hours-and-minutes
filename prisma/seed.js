@@ -155,6 +155,53 @@ const main = async() => {
         }
     })
 
+    await prisma.purchase_History.create({
+        data: {
+            user_id: user1.id,
+            watch_id: watch2.id,
+            purchase_date: new Date("2023-08-30")
+        }
+    })
+
+    await prisma.purchase_History.create({
+        data: {
+            user_id: user2.id,
+            watch_id: watch1.id,
+            purchase_date: new Date("2023-08-30")
+        }
+    })
+
+    await prisma.purchase_History.create({
+        data: {
+            user_id: user2.id,
+            watch_id: watch2.id,
+            purchase_date: new Date("2023-08-30")
+        }
+    })
+
+    await prisma.purchase_History.create({
+        data: {
+            user_id: user1.id,
+            watch_id: watch4.id,
+            purchase_date: new Date("2023-08-30")
+        }
+    })
+
+    await prisma.purchase_History.create({
+        data: {
+            user_id: user3.id,
+            watch_id: watch3.id,
+            purchase_date: new Date("2023-08-30")
+        }
+    })
+
+    await prisma.purchase_History.create({
+        data: {
+            user_id: user3.id,
+            watch_id: watch2.id,
+            purchase_date: new Date("2023-08-30")
+        }
+    })
 
 }
 
