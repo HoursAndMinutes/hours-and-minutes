@@ -20,8 +20,8 @@ const RegisterForm = () => {
         password,
       }),
     });
-    const data = await result.json();
-    console.log(data);
+    const token = await result.json();
+    return token;
   };
 
   return (

@@ -18,6 +18,8 @@ const BrandsDetails = () => {
     fetchAPI();
   })
 
+  console.log(allBrands)
+
   return (
     <section>
       {

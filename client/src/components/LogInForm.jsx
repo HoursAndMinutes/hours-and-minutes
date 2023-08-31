@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const LogInForm = () => {
   //TO DO: Return token, link to backend, sign in user if info is correct
@@ -14,8 +14,8 @@ const LogInForm = () => {
       },
       body: JSON.stringify({ email, password }),
     });
-    const data = await result.json();
-    console.log(data);
+    const token = await result.json();
+    return token;
   };
   return (
     <section>
