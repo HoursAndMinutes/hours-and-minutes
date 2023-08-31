@@ -51,7 +51,7 @@ model Billing_Info {
   zip            String @db.VarChar(200)
   country        String @db.VarChar(200)
   user           User   @relation(fields: [user_id], references: [id])
-  user_id         Int
+  user_id        Int
 }
 
 model Shipping_Info {
@@ -64,22 +64,22 @@ model Shipping_Info {
   zip            String @db.VarChar(200)
   country        String @db.VarChar(200)
   user           User   @relation(fields: [user_id], references: [id])
-  user_id         Int
+  user_id        Int
 }
 
 model Purchase_History {
   id            Int      @id @unique @default(autoincrement())
   user          User     @relation(fields: [user_id], references: [id])
-  user_id        Int
-  watch         Watches  @relation(fields: [watch_id], references: [id])
+  user_id       Int
+  watch         Watches  @relation(fields: [watch_id], references: [id], onDelete: Cascade)
   watch_id      Int
   purchase_date DateTime
 }
 
 model Cart {
-  id            Int      @id @unique @default(autoincrement())
-  user          User     @relation(fields: [user_id], references: [id])
-  user_id       Int
-  watch         Watches  @relation(fields: [watch_id], references: [id])
-  watch_id      Int
+  id       Int     @id @unique @default(autoincrement())
+  user     User    @relation(fields: [user_id], references: [id])
+  user_id  Int
+  watch    Watches @relation(fields: [watch_id], references: [id], onDelete: Cascade)
+  watch_id Int
 }

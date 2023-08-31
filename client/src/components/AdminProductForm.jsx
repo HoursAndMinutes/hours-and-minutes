@@ -1,5 +1,7 @@
+//TO DO: Link to backend to add new product
+import { useState } from "react";
+
 const AdminProductForm = () => {
-    //TO DO: Link to backend to add new product
 
     return (
         <section>
