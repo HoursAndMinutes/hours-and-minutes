@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import LogInForm from "../components/LogInForm";
 import RegisterForm from "../components/RegisterForm";
 
-const LogIn = () => {
+const LogIn = ({setToken}) => {
     const [showLoginForm, setShowLoginForm] = useState(true);
 
     return (
         <section>
-            {showLoginForm ? <LogInForm /> : <RegisterForm />}
+            {showLoginForm ? <LogInForm setToken = {setToken}/> : <RegisterForm />}
             {showLoginForm ? (
                 <p>New User? Sign Up <a href="#" onClick={() => setShowLoginForm(false)}>Here!</a></p>
             ) : (

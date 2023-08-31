@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const LogInForm = () => {
+const LogInForm = ({setToken}) => {
   //TO DO: Return token, link to backend, sign in user if info is correct
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,9 +17,14 @@ const LogInForm = () => {
       },
       body: JSON.stringify({ email, password }),
     });
-    const token = await result.json();
-    return token;
+    const resultToken = await result.json();
+    console.log(resultToken)
+    console.log(setToken)
+    setToken(resultToken.token)
+    localStorage.setItem("logintoken",resultToken.token)
+    navigate('/')
   };
+
   return (
     <section>
       <h2>Log in here:</h2>

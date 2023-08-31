@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({setToken}) => {
+    const navigate = useNavigate()
   return (
     <header>
       <nav>
@@ -28,13 +30,20 @@ const NavBar = () => {
           {" "}
           Profile{" "}
         </Link>
-        <Link className="navLink" to="/login">
+        {/* <Link className="navLink" to="/login" state={{token : token}}>
           {" "}
           Login{" "}
-        </Link>
+        </Link> */}
         <Link className="navLink" to="/cart">
           {" "}
           Cart{" "}
+        </Link>
+
+        <Link className="navLink"  onClick={() => {localStorage.removeItem("logintoken")
+        setToken("")
+        navigate('/')}}>
+          {" "}
+          Sign Out{" "}
         </Link>
       </nav>
     </header>

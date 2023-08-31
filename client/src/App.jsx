@@ -13,12 +13,22 @@ import SingleItem from './pages/SingleItem';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import BrandsDetails from './pages/BrandsDetails';
-
+import { useEffect, useState } from 'react';
 
 const App = () => {
+
+  const [token, setToken] = useState("")
+
+  useEffect( () => {
+    const tkn = localStorage.getItem("logintoken")
+    setToken(tkn)
+  }, [])
+
   return (
     <section>
-      <NavBar />
+      {!token ? <LogIn setToken = {setToken}/> :  
+      <>
+      <NavBar token = {token} setToken = {setToken} />
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/about' element={<AboutUs />}/>
@@ -26,14 +36,15 @@ const App = () => {
           <Route path='/cart' element={<Cart />}/>
           <Route path='/checkout' element={<Checkout />}/>
           <Route path='/contact' element={<Contact />}/>
-          <Route path='/login' element={<LogIn />}/>
+          {/* <Route path='/login' element={<LogIn />}/> */}
           <Route path='/profile' element={<Profile />}/>
           <Route path='/shop' element={<Shop />}/>
           <Route path='/signup' element={<SignUp />}/>
           <Route path='/singleitem' element={<SingleItem />}/>
           <Route path='/brands' element={<BrandsDetails />}/>
         </Routes>
-      <Footer />
+      <Footer /> 
+      </> }
     </section>
   );
 };
