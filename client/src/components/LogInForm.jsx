@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 const LogInForm = () => {
@@ -7,7 +6,7 @@ const LogInForm = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const result = await fetch("/auth/login", {
       method: "POST",
       headers: {
@@ -23,7 +22,8 @@ const LogInForm = () => {
       <h2>Log in here:</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Email: <input onChange={(e) => setEmail(e.target.value)} value={email} />
+          Email:{" "}
+          <input onChange={(e) => setEmail(e.target.value)} value={email} />
         </label>
         <label>
           Password:{" "}

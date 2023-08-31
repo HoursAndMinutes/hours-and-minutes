@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LogInForm from "../components/LogInForm";
 import RegisterForm from "../components/RegisterForm";
 
-const App = () => {
+const LogIn = () => {
     const [showLoginForm, setShowLoginForm] = useState(true);
 
     return (
@@ -17,4 +17,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default LogIn;
