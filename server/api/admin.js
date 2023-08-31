@@ -57,8 +57,8 @@ router.delete('/deletewatch/:id', requireAdmin, async (req, res) => {
                 id: Number(req.params.id)
             }
         })
-        if (watch) {
-            res.send(watch);
+        if (watch !== null) {
+            res.send({message: "Watch deleted successfully"});
         } else {
             res.send({ error: "Could not update watch" });
         }
@@ -72,8 +72,11 @@ router.delete('/deletewatch/:id', requireAdmin, async (req, res) => {
 router.put('/updateuser/:id', requireAdmin, async (req, res) => {
     try {
         const updatedUser = await prisma.user.update({
+            where: {
+                id: Number(req.params.id)
+            },
             data: req.body
-        })
+        });
         if (updatedUser) {
             res.send(updatedUser);
         } else {
