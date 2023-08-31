@@ -26,6 +26,7 @@ router.post('/login', async (req, res) => {
       res.send({ error: "User not found. Please try again" })
     }
   } catch(err) {
+    console.log(err)
     res.send(err);
   }
 });
