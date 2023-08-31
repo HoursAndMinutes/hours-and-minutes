@@ -74,4 +74,24 @@ router.get('/:id/cart', async (req, res) => {
     }
 });
 
+router.get('/:id/purchasehistory', async (req, res) => {
+    try {
+        const results = await prisma.purchase_History.findMany({
+            where: {
+                user_id: Number(req.params.id),
+            },
+            include: {
+                watch: true
+            } 
+        });
+        if (results) {
+            res.send(results)
+        } else {
+            res.send({ message: "Purchase History not found" })
+        }
+    } catch (error) {
+        res.send({ error: "Something up with the purchase history" })
+    }
+});
+
 module.exports = router;
