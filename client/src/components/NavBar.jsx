@@ -11,7 +11,7 @@ const NavBar = () => {
                 <Link className = "navLink" to = '/shop?type=brand'> Shop by Brand </Link>
                 <Link className = "navLink" to = '/shop?type=featured'> Featured </Link>
                 <Link className = "navLink" to = '/profile'> Profile </Link>
-                <Link className = "navLink" to = '/LogIn'> Login </Link>
+                <Link className = "navLink" to = '/login'> Login </Link>
                 <Link className = "navLink" to = '/cart'> Cart </Link>
             </nav>        
         </header>

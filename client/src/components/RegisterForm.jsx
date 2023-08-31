@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
 
 const RegisterForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    alerts: '',
-  });
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const result = await fetch("/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ firstname:firstName, lastname:lastName, email, password }),
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Link to your backend here
-    console.log('Form data submitted', formData);
+    const data = await result.json();
+    console.log(data);
   };
 
   return (
@@ -29,21 +27,21 @@ const RegisterForm = () => {
       <form id="form-section" onSubmit={handleSubmit}>
         <label>
           First Name: 
-          <input name="firstName" value={formData.firstName} onChange={handleChange} />
+          <input name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         </label>
         <label>
           Last Name: 
-          <input name="lastName" value={formData.lastName} onChange={handleChange} />
+          <input name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)}  />
         </label>
         <label>
           Email: 
-          <input name="email" value={formData.email} onChange={handleChange} />
+          <input name="email" value={email} onChange={(e) => setEmail(e.target.value)}  />
         </label>
         <label>
           Password: 
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}  />
         </label>
-        <label>
+        {/* <label>
           Sign up for alerts?
           <input type="radio" id="allalerts" name="alerts" value="all" onChange={handleChange} />
           <label htmlFor="allalerts">All alerts</label>
@@ -51,7 +49,7 @@ const RegisterForm = () => {
           <label htmlFor="somealerts">Some alerts</label>
           <input type="radio" id="noalerts" name="alerts" value="none" onChange={handleChange} />
           <label htmlFor="noalerts">No alerts</label>
-        </label>
+        </label> */}
         <button type="submit">Register</button>
       </form>
     </section>
