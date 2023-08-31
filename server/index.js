@@ -22,15 +22,17 @@ app.use( async (req, res, next) => {
   next();
 });
 
-app.get(`/`, (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client/dist/index.html"));
-});
+
 
 app.use(express.static(path.join(__dirname, "..", "client/dist")));
 
 app.use(`/api`, require(`./api`));
 
 app.use('/auth', require('./auth'));
+
+app.get(`/*`, (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client/dist/index.html"));
+});
 
 app.listen(PORT, (err) => {
   if (!err) {
