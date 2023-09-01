@@ -23,11 +23,11 @@ const BrandsDetails = () => {
     <section>
       {
         allBrands.map((brand) => {
-          if (!thirdArr.includes(brand.brand)) {
-            thirdArr.push(brand.brand);
+          if (!thirdArr.includes(brand)) {
+            thirdArr.push(brand);
             return (
-              <section key={`${brand.brand}Id`}>
-                <a href={``}>
+              <section key={`${brand}Id`}>
+                <a href={`/shop?type=${brand}`}>
                   <img />
                   <p>{brand}</p>
                 </a>

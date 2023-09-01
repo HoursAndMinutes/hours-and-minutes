@@ -16,7 +16,7 @@ const NavBar = ({setToken, token}) => {
           {" "}
           Women{" "}
         </Link>
-        <Link className="navLink" to="/shop?type=brand">
+        <Link className="navLink" to="/brands">
           {" "}
           Shop by Brand{" "}
         </Link>
