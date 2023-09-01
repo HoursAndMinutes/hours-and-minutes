@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
 
     return (
-        <body>
+        <section>
             <FeaturedWatch />
             <section>
                 <section id="men">
@@ -43,7 +43,7 @@ const Home = () => {
                 <p>Popular Watches</p>
             </section>
             <ShopDetails />
-        </body>
+        </section>
     )
 };
 

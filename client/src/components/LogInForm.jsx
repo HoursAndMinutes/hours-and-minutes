@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const LogInForm = ({setToken}) => {
@@ -18,8 +17,6 @@ const LogInForm = ({setToken}) => {
       body: JSON.stringify({ email, password }),
     });
     const resultToken = await result.json();
-    console.log(resultToken)
-    console.log(setToken)
     setToken(resultToken.token)
     localStorage.setItem("logintoken",resultToken.token)
     navigate('/')
