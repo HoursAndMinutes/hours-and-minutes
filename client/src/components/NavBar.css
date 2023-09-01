@@ -1,0 +1,112 @@
+/* General Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1.5rem;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Brand Logo Area */
+  .brand-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Navigation Links */
+  .navLink {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+  }
+  
+  /* Animated Underline Effect */
+  .navLink::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff9900;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navLink:hover::before {
+    visibility: visible;
+    width: 100%;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+  
+    .navLink, .brand-logo {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+
+  .nav-left, .nav-center, .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-left {
+    justify-content: flex-start;
+  }
+  
+  .nav-center {
+    justify-content: center;
+    flex-grow: 1;  /* Allow it to take available space */
+  }
+  
+  .center-logo {
+    font-size: 2rem;  /* Larger font size */
+    font-weight: bold;
+  }
+  
+  .nav-right {
+    justify-content: flex-end;
+  }
+  
+
+  
