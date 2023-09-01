@@ -26,6 +26,7 @@ const SingleItemDetail = () => {
             <p>{singleWatch.gender}</p>
             <p>{singleWatch.description}</p>
             <p>{`$${singleWatch.price}`}</p>
+            <img src = {`${singleWatch.imageURL}`}/>
             <button onClick={() => addToCart()}>Add to cart</button>
         </section>
     )
