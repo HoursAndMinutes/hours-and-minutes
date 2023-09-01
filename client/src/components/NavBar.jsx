@@ -9,7 +9,7 @@ const NavBar = ({ setToken, token }) => {
           <Link className="navLink" to="/">H&M</Link>
           <Link className="navLink" to="/shop?type=men">Men</Link>
           <Link className="navLink" to="/shop?type=women">Women</Link>
-          <Link className="navLink" to="/shop?type=brand">Brand</Link>
+          <Link className="navLink" to="/brands">Brand</Link>
           <Link className="navLink" to="/shop?type=featured">Featured</Link>
         </div>
         <div className="nav-center">
