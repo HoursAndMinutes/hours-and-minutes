@@ -1,22 +1,20 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
-const NavBar = ({setToken}) => {
-    const navigate = useNavigate()
+const NavBar = ({setToken, token}) => {
   return (
     <header>
       <nav>
         <Link className="navLink" to="/">
           {" "}
-          Hours and Minutes{" "}
+          H&M{" "}
         </Link>
         <Link className="navLink" to="/shop?type=men">
           {" "}
-          Men's{" "}
+          Men{" "}
         </Link>
         <Link className="navLink" to="/shop?type=women">
           {" "}
-          Women's{" "}
+          Women{" "}
         </Link>
         <Link className="navLink" to="/shop?type=brand">
           {" "}
@@ -26,25 +24,34 @@ const NavBar = ({setToken}) => {
           {" "}
           Featured{" "}
         </Link>
-        <Link className="navLink" to="/profile">
-          {" "}
-          Profile{" "}
-        </Link>
-        {/* <Link className="navLink" to="/login" state={{token : token}}>
-          {" "}
-          Login{" "}
-        </Link> */}
         <Link className="navLink" to="/cart">
           {" "}
           Cart{" "}
         </Link>
-
-        <Link className="navLink"  onClick={() => {localStorage.removeItem("logintoken")
-        setToken("")
-        navigate('/')}}>
-          {" "}
-          Sign Out{" "}
-        </Link>
+        {token ? (
+          <div>
+            <Link className="navLink" to="/profile">
+              {" "}
+              Profile{" "}
+            </Link>
+            <Link
+              className="navLink"
+              to="/"
+              onClick={() => {
+                localStorage.removeItem("logintoken");
+                setToken("");
+              }}
+            >
+              {" "}
+              Sign Out{" "}
+            </Link>
+          </div>
+        ) : (
+            <Link className="navLink" to="/login" state={{ token: token }}>
+              {" "}
+              Login{" "}
+            </Link>
+        )}
       </nav>
     </header>
   );

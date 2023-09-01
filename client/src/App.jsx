@@ -26,7 +26,6 @@ const App = () => {
 
   return (
     <section>
-      {!token ? <LogIn setToken = {setToken}/> :  
       <>
       <NavBar token = {token} setToken = {setToken} />
         <Routes>
@@ -36,7 +35,7 @@ const App = () => {
           <Route path='/cart' element={<Cart />}/>
           <Route path='/checkout' element={<Checkout />}/>
           <Route path='/contact' element={<Contact />}/>
-          {/* <Route path='/login' element={<LogIn />}/> */}
+          <Route path='/login' element={<LogIn setToken={setToken}/>}/>
           <Route path='/profile' element={<Profile />}/>
           <Route path='/shop' element={<Shop />}/>
           <Route path='/signup' element={<SignUp />}/>
@@ -44,7 +43,7 @@ const App = () => {
           <Route path='/brands' element={<BrandsDetails />}/>
         </Routes>
       <Footer /> 
-      </> }
+      </> 
     </section>
   );
 };
