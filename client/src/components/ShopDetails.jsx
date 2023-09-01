@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const ShopDetails = ({ type }) => {
+const ShopDetails = ({ type, searchParams }) => {
   //TO DO: Loop through all watches that fit X quality (passed in)
   //EXAMPLE: Loop through all men's watches, women's watches,
   //EXAMPLE: Loop through all Rolex watches
@@ -24,7 +24,7 @@ const ShopDetails = ({ type }) => {
       setAllWatches(watchList);
   }
     fetchAPI();
-  }, []);
+  }, [searchParams]);
 
   return (
     <section>
