@@ -26,7 +26,6 @@ const App = () => {
 
   return (
     <section>
-      {/* {!token ? <LogIn setToken = {setToken}/> :   */}
       <>
       <NavBar token = {token} setToken = {setToken} />
         <Routes>
@@ -45,7 +44,6 @@ const App = () => {
         </Routes>
       <Footer /> 
       </> 
-      {/* } */}
     </section>
   );
 };

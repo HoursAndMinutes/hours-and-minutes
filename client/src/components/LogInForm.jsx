@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LogInForm = ({setToken}) => {
-  //TO DO: Return token, link to backend, sign in user if info is correct
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
