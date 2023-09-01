@@ -33,7 +33,7 @@ const ShopDetails = ({ type }) => {
           return (
             <section key={`#${watch.id}`}>
               <a href={`/singleitem?watchId=${watch.id}`}>
-                <img />
+                <img src = {`${watch.imageURL}`}/>
                 <p>{watch.name}</p>
                 <p>{`${watch.brand} $${watch.price}`}</p>
               </a>
