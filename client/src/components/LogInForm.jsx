@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './LogInForm.css'
 
 const LogInForm = ({setToken}) => {
   const navigate = useNavigate()
@@ -22,14 +23,14 @@ const LogInForm = ({setToken}) => {
   };
 
   return (
-    <section>
+    <section className="login-form-container">
       <h2>Log in here:</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} className="form">
+        <label id="email">
           Email:{" "}
           <input onChange={(e) => setEmail(e.target.value)} value={email} />
         </label>
-        <label>
+        <label id="password">
           Password:{" "}
           <input
             onChange={(e) => setPassword(e.target.value)}
