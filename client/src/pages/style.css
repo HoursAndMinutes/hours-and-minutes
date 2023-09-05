@@ -47,3 +47,8 @@
     font-size: xx-large;
 
 }
+.gender img {
+    margin-top: 10px;
+    width: 250px;
+    height: 225px;
+}
