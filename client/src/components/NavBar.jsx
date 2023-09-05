@@ -6,7 +6,7 @@ const NavBar = ({ setToken, token }) => {
     <header>
       <nav>
         <div className="nav-left">
-          <Link className="navLink" to="/">H&M</Link>
+          <Link className="navLink" to="/">Home</Link>
           <Link className="navLink" to="/shop?type=men">Men</Link>
           <Link className="navLink" to="/shop?type=women">Women</Link>
           <Link className="navLink" to="/brands">Brand</Link>

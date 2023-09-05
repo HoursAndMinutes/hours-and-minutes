@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./LogInForm.css";
 
-  const LogInForm = ({setToken}) => {
-    const navigate = useNavigate()
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const result = await fetch("/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+const LogInForm = ({ setToken }) => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = await fetch("/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
     
       if (result.ok) {
         const resultToken = await result.json();
@@ -42,23 +44,29 @@ import { useNavigate } from "react-router-dom";
   };
 
   return (
-    <section>
+    <section className="login-form-container">
       <h2>Log in here:</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} className="form">
+        <label id="email">
           Email:{" "}
-          <input onChange={(e) => setEmail(e.target.value)} value={email} required/>
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+            className="form-input"
+          />
         </label>
-        <label>
+        <label id="password">
           Password:{" "}
           <input
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
             required
+            className="form-input"
           />
         </label>
-        <button>Log in</button>
+        <button className="form-button">Log in</button>
       </form>
     </section>
   );
