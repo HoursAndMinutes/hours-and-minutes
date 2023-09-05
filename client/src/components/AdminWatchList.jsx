@@ -10,7 +10,6 @@ const AdminWatchList = () => {
     const fetchWatches = async () => {
       const result = await fetch("./api/watches")
       const data = await result.json()
-      console.log(data)
       setWatchList(data)
     }
     fetchWatches()

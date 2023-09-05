@@ -16,10 +16,31 @@ const LogInForm = ({ setToken }) => {
       },
       body: JSON.stringify({ email, password }),
     });
-    const resultToken = await result.json();
-    setToken(resultToken.token);
-    localStorage.setItem("logintoken", resultToken.token);
-    navigate("/");
+    
+      if (result.ok) {
+        const resultToken = await result.json();
+        setToken(resultToken.token);
+        localStorage.setItem("logintoken", resultToken.token);
+    
+        const adminCheck = await fetch("/auth/me", {
+          headers: {
+            Authorization: `Bearer ${resultToken.token}`,
+          },
+        });
+
+      if (adminCheck.ok) {
+        const userData = await adminCheck.json();
+        if (userData.admin) {
+          navigate('/admin');
+        } else {
+          navigate('/');
+        }
+      } else {
+        console.error("Failed to fetch user data");
+      }
+    } else {
+      console.error("Login failed");
+    }
   };
 
   return (
@@ -31,6 +52,7 @@ const LogInForm = ({ setToken }) => {
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            required
             className="form-input"
           />
         </label>
@@ -40,6 +62,7 @@ const LogInForm = ({ setToken }) => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
+            required
             className="form-input"
           />
         </label>

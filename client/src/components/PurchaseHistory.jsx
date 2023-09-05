@@ -22,7 +22,7 @@ const PurchaseHistory = () => {
             {history.map(item => (
                     <section key={item.id}>
                         <p>Name: {item.watch.name}</p>
-                        <p>Price: {item.watch.price}</p>
+                        <p>Price: ${item.watch.price}</p>
                         <p>Purchase Date: {new Date(item.purchase_date).toLocaleDateString()}</p>
                         <br></br>
                     </section>

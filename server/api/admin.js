@@ -50,7 +50,7 @@ router.put('/updatewatch/:id', requireAdmin, async (req, res) => {
 })
 
 //Delete a Watch
-router.delete('/deletewatch/:id', requireAdmin, async (req, res) => {
+router.delete('/deletewatch/:id', async (req, res) => {
     try {
         const watch = await prisma.watches.delete({
             where: {
