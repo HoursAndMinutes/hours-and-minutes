@@ -9,7 +9,7 @@ const Shop = () => {
   return (
     <section className="shop">
       <h1>
-        All {type === "men" ? "Men's" : type === "women" ? "Women's" : "brand"}{" "}
+        {type === "men" ? "Men's" : type === "women" ? "Women's" : `${type}`}{" "}
         Watches
       </h1>
       <div className="watch-container">
