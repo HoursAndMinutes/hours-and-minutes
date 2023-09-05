@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './LogInForm.css'
+import "./LogInForm.css";
 
-const LogInForm = ({setToken}) => {
-  const navigate = useNavigate()
+const LogInForm = ({ setToken }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,9 +17,9 @@ const LogInForm = ({setToken}) => {
       body: JSON.stringify({ email, password }),
     });
     const resultToken = await result.json();
-    setToken(resultToken.token)
-    localStorage.setItem("logintoken",resultToken.token)
-    navigate('/')
+    setToken(resultToken.token);
+    localStorage.setItem("logintoken", resultToken.token);
+    navigate("/");
   };
 
   return (
@@ -28,7 +28,11 @@ const LogInForm = ({setToken}) => {
       <form onSubmit={handleSubmit} className="form">
         <label id="email">
           Email:{" "}
-          <input onChange={(e) => setEmail(e.target.value)} value={email} />
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            className="form-input"
+          />
         </label>
         <label id="password">
           Password:{" "}
@@ -36,9 +40,10 @@ const LogInForm = ({setToken}) => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
+            className="form-input"
           />
         </label>
-        <button>Log in</button>
+        <button className="form-button">Log in</button>
       </form>
     </section>
   );

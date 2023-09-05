@@ -1,8 +1,11 @@
-/* Footer Styles */
 footer {
     background-color: #3333337f;
     color: white;
     padding: 1.5rem;
+    position: fixed;  
+    bottom: 0;        
+    width: 100%;       
+    z-index: 999;      
 }
 
 footer nav {
