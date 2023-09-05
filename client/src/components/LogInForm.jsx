@@ -1,25 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// const LogInForm = ({setToken}) => {
-//   const navigate = useNavigate()
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const result = await fetch("/auth/login", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ email, password }),
-//     });
-//     const resultToken = await result.json();
-//     console.log("THIS IS FROM LOGINFORM RESULTTOKEN", resultToken)
-//     setToken(resultToken.token)
-//     localStorage.setItem("logintoken",resultToken.token)
-//     resultToken.admin ? navigate('/admin') : navigate('/')
-//   };
   const LogInForm = ({setToken}) => {
     const navigate = useNavigate()
     const [email, setEmail] = useState("");
