@@ -2,13 +2,14 @@ import FeaturedWatch from "../components/FeaturedWatch";
 import ShopDetails from '../components/ShopDetails';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './style.css';
 
 const Home = () => {
 
     return (
         <section>
             <FeaturedWatch />
-            <section>
+            <section className="gender">
                 <section id="men">
                     <a href='/shop?type=men'>
                         <img />
@@ -22,24 +23,24 @@ const Home = () => {
                     </a>
                 </section>
             </section>
-            <section>
+            <section className="brands">
                 <section id="brand1">
                     <a>
-                        <p>Brand 1 Watches</p>
+                        <p>Rolex</p>
                     </a>
                 </section>
                 <section id="brand2">
                     <a>
-                        <p>Brand 2 Watches</p>
+                        <p>Patek Philippe</p>
                     </a>
                 </section>
                 <section id="brand3">
                     <a>
-                        <p>Brand 3 Watches</p>
+                        <p>Jaquet Droz</p>
                     </a>
                 </section>
             </section>
-            <section>
+            <section className="popular">
                 <p>Popular Watches</p>
             </section>
             <ShopDetails />

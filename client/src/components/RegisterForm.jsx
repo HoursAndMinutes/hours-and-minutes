@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './RegisterForm.css'
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -25,10 +26,8 @@ const RegisterForm = () => {
   };
 
   return (
-    <section>
-      <h2>
-        <a href="#form-section">Sign up here:</a>
-      </h2>
+    <section id="register-container">
+      <h2>Sign up here:</h2>
       <form id="form-section" onSubmit={handleSubmit}>
         <label>
           First Name:
@@ -36,6 +35,7 @@ const RegisterForm = () => {
             name="firstName"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            className="inputs"
           />
         </label>
         <label>
@@ -44,6 +44,7 @@ const RegisterForm = () => {
             name="lastName"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            className="inputs"
           />
         </label>
         <label>
@@ -52,6 +53,7 @@ const RegisterForm = () => {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="inputs"
           />
         </label>
         <label>
@@ -61,10 +63,11 @@ const RegisterForm = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="inputs"
           />
         </label>
 
-        <button type="submit">Register</button>
+        <button id="register-button" type="submit">Register</button>
       </form>
     </section>
   );

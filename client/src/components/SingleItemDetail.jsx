@@ -20,7 +20,7 @@ const SingleItemDetail = () => {
     }
 
     return (
-        <section>
+        <section className='single-item'>
             <img />
             <p>{singleWatch.name}</p>
             <p>{singleWatch.gender}</p>
