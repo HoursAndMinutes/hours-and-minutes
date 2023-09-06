@@ -8,6 +8,7 @@ const Home = () => {
 
     return (
         <section>
+            <section className="title">Time...it's not just relative.</section>
             <FeaturedWatch />
             <section className="gender">
                 <section id="men">
