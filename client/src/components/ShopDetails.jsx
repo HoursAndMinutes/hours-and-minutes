@@ -36,8 +36,8 @@ const ShopDetails = ({ type, searchParams }) => {
       {allWatches.map((watch) => {
         return (
           <section key={`#${watch.id}`} className="shop-det">
-            <a href={`/singleitem?watchId=${watch.id}`}>
-              <img src={`${watch.imageURL}`} />
+            <img src={`${watch.imageURL}`} />
+            <a href={`/singleitem?watchId=${watch.id}`} className="link">
               <p>{watch.name}</p>
               <p>{`${watch.brand} $${watch.price}`}</p>
             </a>

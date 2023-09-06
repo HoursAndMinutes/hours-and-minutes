@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import "./FeaturedWatch.css";
 
@@ -14,9 +15,9 @@ const FeaturedWatch = () => {
 
   return (
     <section id="container">
-      <section className="title">Time...it's not just relative.</section>
-      <h2>Check out our Featured Watches</h2>
       <section id="fw_details">
+      <h2 id="feat-text">Check out our Featured Watches</h2>
+      <button id="open-button" onClick={openModal}>Click Here</button>
         <a onClick={openModal}>
           <img
             className="feat_img"
