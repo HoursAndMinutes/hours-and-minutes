@@ -1,14 +1,15 @@
 import { useState } from "react";
-import './RegisterForm.css'
+import './RegisterForm.css';
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     const result = await fetch("/auth/register", {
       method: "POST",
       headers: {
@@ -22,6 +23,7 @@ const RegisterForm = () => {
       }),
     });
     const token = await result.json();
+    navigate('/login');
     return token;
   };
 
