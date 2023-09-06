@@ -5,7 +5,7 @@ const Profile = () => {
     //TO DO: Replace user with user's first name
     return (
         <section>
-            <h1>Welcome, User!</h1>
+            <h1>Welcome!</h1>
             <PurchaseHistory token = {token} />
         </section>
     )

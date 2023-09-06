@@ -19,7 +19,7 @@ const PurchaseHistory = () => {
 
         <section>
             <h2>Purchase History</h2>
-            {history.map(item => (
+            {/* {history.map(item => (
                     <section key={item.id}>
                         <p>Name: {item.watch.name}</p>
                         <p>Price: ${item.watch.price}</p>
@@ -27,7 +27,7 @@ const PurchaseHistory = () => {
                         <br></br>
                     </section>
                 ))
-            }
+            } */}
         </section> 
   )
 }
