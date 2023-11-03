@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import 'st'
+import './style.css';
 
 const BrandsDetails = () => {
   const [allBrands, setAllBrands] = useState([]);
