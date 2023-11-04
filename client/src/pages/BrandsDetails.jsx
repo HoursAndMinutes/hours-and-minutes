@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './style.css';
 
 const BrandsDetails = () => {
   const [allBrands, setAllBrands] = useState([]);
@@ -20,7 +21,7 @@ const BrandsDetails = () => {
   }, [])
 
   return (
-    <section>
+    <section id='brands'>
       {
         allBrands.map((brand) => {
           if (!thirdArr.includes(brand)) {
