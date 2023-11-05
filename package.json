@@ -8,9 +8,9 @@
     "server:dev": "nodemon server/index.js",
     "client:build": "cd client && npm run build",
     "build:dev": "cd client && npm run build && cd .. && nodemon server/index.js",
-    "migrate:prisma": "npx prisma migrate reset && npx prisma migrate dev && node prisma/seed.js",
-    "build": "npm i && cd client && npm i && npm run build",
-    "start": "cd server && node index.js"
+    "migrate": "npx prisma migrate reset && npx prisma migrate dev && node prisma/seed.js",
+    "build": "cd client && npm run build",
+    "start": "npm run migrate && npm run server"
   },
   "keywords": [],
   "author": "",
