@@ -9,7 +9,7 @@
     "build": "cd client && npm run build",
     "build:dev": "cd client && npm run build && cd .. && nodemon server/index.js",
     "migrate": "npx prisma migrate deploy",
-    "start": "node prisma/seed.js && node server/indes.js",
+    "start": "node prisma/seed.js && node server/index.js",
     "server": "node ./server/index.js"
   },
   "keywords": [],
